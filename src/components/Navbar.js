@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Link from 'react-router-dom/Link';
+import { Link } from 'react-router-dom';
 
 // material-ui islevleri
 import AppBar from '@material-ui/core/AppBar';
@@ -21,4 +21,4 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar
+export default Navbar;
