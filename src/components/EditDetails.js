@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
+import CSButton from '../util/CSButton';
 
 //redux
 import { connect } from 'react-redux';
@@ -13,8 +14,6 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import Tooltip from '@material-ui/core/Tooltip';
-import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 
 const styles = (theme) => ({
@@ -74,11 +73,9 @@ class EditDetails extends Component {
         const { classes } = this.props;
         return (
             <Fragment>
-                <Tooltip title="edit details" placement="top">
-                    <IconButton onClick={this.handleOpen} className={classes.button}>
-                        <EditIcon color="primary" />
-                    </IconButton>
-                </Tooltip>
+                <CSButton tip="edit details" onClick={this.handleOpen} btnClassName={classes.button}>
+                    <EditIcon color="primary"/>
+                </CSButton>
                 <Dialog
                     open={this.state.open}
                     onClose={this.handleClose}
