@@ -4,14 +4,13 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
 import EditDetails from './EditDetails';
+import CSButton from '../util/CSButton';
 
 // mui islevleri
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import MuiLink from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
-import IconButton  from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
 
 //icons 
 import LocationOn from '@material-ui/icons/LocationOn';
@@ -80,7 +79,7 @@ export class Profile extends Component {
         formData.append('image', image, image.name);
         this.props.uploadImage(formData);
     };
-    handleEditPicture = () =>{
+    handleEditPicture = () => {
         const fileInput = document.getElementById('imageInput');
         fileInput.click();
     };
@@ -94,12 +93,10 @@ export class Profile extends Component {
                 <div className={classes.profile}>
                     <div className="image-wrapper">
                         <img src={imageUrl} alt="profile" className="profile-image" />
-                        <input type="file" id="imageInput" hidden="hidden" onChange={this.handleImageChange}/>
-                        <Tooltip title="edit profile" placement="top">
-                        <IconButton onClick={this.handleEditPicture} className="button">
-                            <EditIcon color="primary"/>
-                        </IconButton>
-                        </Tooltip>
+                        <input type="file" id="imageInput" hidden="hidden" onChange={this.handleImageChange} />
+                        <CSButton tip="edit profile picture" onClick={this.handleEditPicture} btnClassName="button">
+                            <EditIcon color="primary" />
+                        </CSButton>
                     </div>
                     <hr />
                     <div className="profile-details">
@@ -127,29 +124,27 @@ export class Profile extends Component {
                         <CalendarToday color="primary" />{' '}
                         <span>Joined {dayjs(createdAt).format('MMM YYYY')}</span>
                     </div>
-                    <Tooltip title="Logout" placement="top">
-                        <IconButton onClick={this.handleLogout}>
-                            <KeyboardReturn color="primary"/>
-                        </IconButton>
-                    </Tooltip>
+                    <CSButton tip="Logout" onClick={this.handleLogout}>
+                        <KeyboardReturn color="primary" />
+                    </CSButton>
                     <EditDetails />
                 </div>
             </Paper>
         ) : (
-            <Paper className={classes.paper}>
-                <Typography variant="body2" align="center">
-                    No profile found, please login again
+                <Paper className={classes.paper}>
+                    <Typography variant="body2" align="center">
+                        No profile found, please login again
                 </Typography>
-                <div className={classes.buttons}>
-                    <Button variant="contained" color="primary" component={Link} to="/login">
-                        Login
+                    <div className={classes.buttons}>
+                        <Button variant="contained" color="primary" component={Link} to="/login">
+                            Login
                     </Button>
-                    <Button variant="contained" color="secondary" component={Link} to="/signup">
-                        Signup
+                        <Button variant="contained" color="secondary" component={Link} to="/signup">
+                            Signup
                     </Button>
-                </div>
-            </Paper>
-        )) : (<p>loading..</p>)
+                    </div>
+                </Paper>
+            )) : (<p>loading..</p>)
         return profileMarkup;
     }
 }
