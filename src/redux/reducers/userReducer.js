@@ -1,4 +1,4 @@
-import { SET_USER, SET_AUTHENTICATED, SET_UNAUTHENTICATED, LOADING_USER } from '../types';
+import { SET_USER, SET_AUTHENTICATED, SET_UNAUTHENTICATED, LOADING_USER, LIKE_POST, UNLIKE_POST } from '../types';
 
 const initialState = {
     authenticated: false,
@@ -8,8 +8,8 @@ const initialState = {
     notifications: []
 };
 
-export default function(state = initialState, action){
-    switch(action.type){
+export default function (state = initialState, action) {
+    switch (action.type) {
         case SET_AUTHENTICATED:
             return {
                 ...state,
@@ -28,7 +28,23 @@ export default function(state = initialState, action){
                 ...state,
                 loading: true
             }
+        case LIKE_POST:
+            return {
+                ...state,
+                likes: [
+                    ...state.likes,
+                    {
+                        userHandle: state.credentials.handle,
+                        postId: action.payload.postId
+                    }
+                ]
+            }
+        case UNLIKE_POST:
+            return {
+                ...state,
+                likes: state.likes.filter((like) => like.postId !== action.payload.postId)
+            };
         default:
-            return state;    
+            return state;
     }
-}
+};
