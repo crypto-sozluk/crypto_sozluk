@@ -6,6 +6,7 @@ import 'dayjs/locale/tr'
 import relativeTime from 'dayjs/plugin/relativeTime';
 import PropTypes from 'prop-types';
 import CSButton from '../util/CSButton';
+import DeletePost from './DeletePost';
 
 //mui islevleri
 import Card from '@material-ui/core/Card';
@@ -24,6 +25,7 @@ import { likePost, unlikePost } from '../redux/actions/dataActions';
 
 const styles = {
     card: {
+        position: 'relative',
         display: 'flex',
         marginBottom: 20
     },
@@ -62,7 +64,8 @@ class Post extends Component {
                 commentCount
             },
             user: {
-                authenticated
+                authenticated,
+                credentials: { handle }
             }
         } = this.props;
         const likeButton = !authenticated ? (
@@ -71,17 +74,20 @@ class Post extends Component {
                     <FavoriteBorder color="primary" />
                 </Link>
             </CSButton>
+        ) : this.likedPost() ? (
+            <CSButton tip="Undo Like" onClick={this.unlikePost}>
+                <FavoriteIcon color="primary" />
+            </CSButton>
         ) : (
-                this.likedPost() ? (
-                    <CSButton tip="Undo Like" onClick={this.unlikePost}>
-                        <FavoriteIcon color="primary" />
-                    </CSButton>
-                ) : (
-                        <CSButton tip="Like" onClick={this.likePost}>
-                            <FavoriteBorder color="primary" />
-                        </CSButton>
-                    )
-            )
+            <CSButton tip="Like" onClick={this.likePost}>
+                <FavoriteBorder color="primary" />
+            </CSButton>
+        );
+
+        const deleteButton = authenticated && userHandle === handle ? (
+            <DeletePost postId={postId} />
+        ) : null
+
         return (
             <Card className={classes.card}>
                 <CardMedia
@@ -90,6 +96,7 @@ class Post extends Component {
                     className={classes.image} />
                 <CardContent className={classes.content}>
                     <Typography variant="h5" color="primary" component={Link} to={`/users/${userHandle}`}>{userHandle}</Typography>
+                    {deleteButton}
                     <Typography variant="body2" color="textSecondary">{dayjs(createdAt).locale('tr').fromNow()}</Typography>
                     <Typography variant="body1">{body}</Typography>
                     {likeButton}
