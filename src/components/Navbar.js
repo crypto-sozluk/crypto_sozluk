@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CSButton from '../util/CSButton';
+import PostPost from './PostPost';
 
 // material-ui islevleri
 import AppBar from '@material-ui/core/AppBar';
@@ -10,7 +11,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 
 //icons
-import AddIcon from '@material-ui/icons/Add';
 import HomeIcon from '@material-ui/icons/Home';
 import Notifications from '@material-ui/icons/Notifications';
 
@@ -22,9 +22,7 @@ class Navbar extends Component {
                 <Toolbar className="nav-container">
                     {authenticated ? (
                         <Fragment>
-                            <CSButton tip="post a scream">
-                                <AddIcon />
-                            </CSButton>
+                            <PostPost />
                             <Link to="/">
                                 <CSButton tip="home">
                                     <HomeIcon />

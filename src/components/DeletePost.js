@@ -7,7 +7,7 @@ import CSButton from '../util/CSButton';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
-// import DialogActions from '@material-ui/core/DialogActions';
+import DialogActions from '@material-ui/core/DialogActions';
 import DeleteOutline from '@material-ui/icons/DeleteOutline';
 
 import { connect } from 'react-redux';
@@ -27,20 +27,21 @@ class DeletePost extends Component {
     };
     handleOpen = () => {
         this.setState({ open: true });
-    }
+    };
     handleClose = () => {
         this.setState({ open: false });
-    }
+    };
     deletePost = () => {
         this.props.deletePost(this.props.postId);
         this.setState({ open: false });
-    }
+    };
 
     render() {
         const { classes } = this.props;
         return (
             <Fragment>
-                <CSButton tip="Delete Post"
+                <CSButton 
+                tip="Post'u hemen sil"
                 onClick={this.handleOpen}
                 btnClassName={classes.deleteButton}
                 >
@@ -55,17 +56,17 @@ class DeletePost extends Component {
                         <DialogTitle>
                             Bu postu silmek istediğine emin misin
                         </DialogTitle>
-                        <DialogTitle>
+                        <DialogActions>
                             <Button onClick={this.handleClose} color="primary">
                                 Iptal et
                             </Button>
                             <Button onClick={this.deletePost} color="secondary">
                                 Sil
                             </Button>
-                        </DialogTitle>
+                        </DialogActions>
                     </Dialog>
             </Fragment>
-        )
+        );
     }
 }
 
