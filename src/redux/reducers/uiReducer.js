@@ -10,7 +10,7 @@ export default function(state = initialState, action) {
         case SET_ERRORS:
             return {
                 ...state,
-                loading: true,
+                loading: false,
                 errors: action.payload
             };
         case CLEAR_ERRORS:
