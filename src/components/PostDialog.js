@@ -4,12 +4,11 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import CSButton from '../util/CSButton';
 import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
+import LikeButton from './LikeButton';
 
 //mui islevleri
-
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -17,10 +16,12 @@ import Typography from '@material-ui/core/Typography';
 //icon
 import CloseIcon from '@material-ui/icons/Close';
 import UnfoldMore from '@material-ui/icons/UnfoldMore';
+import ChatIcon from '@material-ui/icons/Chat';
 
 //redux
 import { connect } from 'react-redux';
 import { getPost } from '../redux/actions/dataActions';
+
 
 
 const styles = (theme) => ({
@@ -40,6 +41,15 @@ const styles = (theme) => ({
     },
     closeButton: {
         position: 'absolute'
+    },
+    expandButton: {
+        position: 'absolute',
+        left: '90%'
+    },
+    spinnerDiv: {
+        textAlign: 'center',
+        marginTop: 50,
+        marginBottom: 50
     }
 })
 
@@ -59,7 +69,9 @@ class PostDialog extends Component {
         const { classes, post: { postId, body, createdAt, likeCount, commentCount, userImage, userHandle }, UI: { loading } } = this.props; 
 
         const dialogMarkup = loading ? (
-            <CircularProgress size={200} />
+            <div className={classes.spinnerDiv}>
+                <CircularProgress size={200} thickness={2}/>
+            </div>
         ) : (
                 <Grid container spacing={16}>
                     <Grid item sm={5}>
@@ -82,6 +94,12 @@ class PostDialog extends Component {
                         <Typography variant="body1">
                             {body}
                         </Typography>
+                        <LikeButton postId={postId}/>
+                        <span>{likeCount} beğeniler</span>
+                        <CSButton tip="comments">
+                        <ChatIcon color="primary" />
+                        </CSButton>
+                        <span>{commentCount} yorumlar</span>
                     </Grid>
                 </Grid>
             );

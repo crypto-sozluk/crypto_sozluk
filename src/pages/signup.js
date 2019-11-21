@@ -30,7 +30,7 @@ class signup extends Component {
             errors: {}
         };
     }
-    
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.UI.errors) {
             this.setState({ errors: nextProps.UI.errors });
@@ -57,7 +57,10 @@ class signup extends Component {
         });
     };
     render() {
-        const { classes, UI: { loading } } = this.props;
+        const {
+            classes,
+            UI: { loading }
+        } = this.props;
         const { errors } = this.state;
         return (
             <Grid container className={classes.form}>
@@ -117,9 +120,15 @@ class signup extends Component {
                                 {errors.general}
                             </Typography>
                         )}
-                        <Button type="submit" variant="contained" color="primary" className={classes.button} disabled={loading}>
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color="primary"
+                            className={classes.button}
+                            disabled={loading}
+                        >
                             Uye ol
-                            {loading && (
+                        {loading && (
                                 <CircularProgress size={30} className={classes.progress} />
                             )}
                         </Button>

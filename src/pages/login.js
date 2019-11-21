@@ -25,7 +25,6 @@ class login extends Component {
         this.state = {
             email: '',
             password: '',
-            loading: false, //default
             errors: {}
         }
     };
@@ -51,7 +50,10 @@ class login extends Component {
         });
     };
     render() {
-        const { classes, UI: { loading } } = this.props;
+        const {
+            classes,
+            UI: { loading }
+        } = this.props;
         const { errors } = this.state;
         return (
             <Grid container className={classes.form}>
@@ -72,7 +74,8 @@ class login extends Component {
                             error={errors.email ? true : false}
                             value={this.state.email}
                             onChange={this.handleChange}
-                            fullWidth />
+                            fullWidth
+                        />
                         <TextField
                             id="password"
                             name="password"
@@ -83,15 +86,22 @@ class login extends Component {
                             error={errors.password ? true : false}
                             value={this.state.password}
                             onChange={this.handleChange}
-                            fullWidth />
+                            fullWidth
+                        />
                         {errors.general && (
                             <Typography variant="body2" className={classes.customError}>
                                 {errors.general}
                             </Typography>
                         )}
-                        <Button type="submit" variant="contained" color="primary" className={classes.button} disabled={loading}>
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color="primary"
+                            className={classes.button}
+                            disabled={loading}
+                        >
                             Giriş yap
-                            {loading && (
+                          {loading && (
                                 <CircularProgress size={30} className={classes.progress} />
                             )}
                         </Button>
