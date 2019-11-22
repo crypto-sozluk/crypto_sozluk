@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
-import CSButton from '../util/CSButton';
+import CSButton from '../../util/CSButton';
 import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
 import LikeButton from './LikeButton';
+import Comments from './Comments';
 
 //mui islevleri
 import Dialog from '@material-ui/core/Dialog';
@@ -20,16 +21,12 @@ import ChatIcon from '@material-ui/icons/Chat';
 
 //redux
 import { connect } from 'react-redux';
-import { getPost } from '../redux/actions/dataActions';
+import { getPost } from '../../redux/actions/dataActions';
 
 
 
 const styles = (theme) => ({
     ...theme.spreadThis,
-    invisibleSeparator: {
-        border: 'none',
-        margin: 4
-    },
     profileImage:{
         maxWidth: 200,
         height: 200,
@@ -66,7 +63,7 @@ class PostDialog extends Component {
     }
 
     render() {
-        const { classes, post: { postId, body, createdAt, likeCount, commentCount, userImage, userHandle }, UI: { loading } } = this.props; 
+        const { classes, post: { postId, body, createdAt, likeCount, commentCount, userImage, userHandle, comments }, UI: { loading } } = this.props; 
 
         const dialogMarkup = loading ? (
             <div className={classes.spinnerDiv}>
@@ -101,6 +98,9 @@ class PostDialog extends Component {
                         </CSButton>
                         <span>{commentCount} yorumlar</span>
                     </Grid>
+                    {/* TODO: COMMENT UNPUT*/}
+                    <hr className={classes.visibleSeparator} />
+                    <Comments comments={comments} />
                 </Grid>
             );
         return (

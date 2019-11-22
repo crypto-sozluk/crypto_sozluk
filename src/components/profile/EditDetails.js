@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
-import CSButton from '../util/CSButton';
+import CSButton from '../../util/CSButton';
 
 //redux
 import { connect } from 'react-redux';
-import { editUserDetails } from '../redux/actions/userActions';
+import { editUserDetails } from '../../redux/actions/userActions';
 
 //mui islevleri
 import Button from '@material-ui/core/Button';

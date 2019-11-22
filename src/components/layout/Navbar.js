@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import CSButton from '../util/CSButton';
-import PostPost from './PostPost';
+import CSButton from '../../util/CSButton';
+import PostPost from '../post/PostPost';
 
 // material-ui islevleri
 import AppBar from '@material-ui/core/AppBar';

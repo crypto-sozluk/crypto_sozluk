@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/tr'
 import relativeTime from 'dayjs/plugin/relativeTime';
 import PropTypes from 'prop-types';
-import CSButton from '../util/CSButton';
+import CSButton from '../../util/CSButton';
 import DeletePost from './DeletePost';
 import PostDialog from './PostDialog';
 import LikeButton from './LikeButton';
