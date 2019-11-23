@@ -1,4 +1,17 @@
-import { SET_POSTS, LOADING_DATA, LIKE_POST, UNLIKE_POST, DELETE_POST, SET_ERRORS, POST_POST, CLEAR_ERRORS, LOADING_UI, SET_POST, STOP_LOADING_UI } from '../types';
+import {
+    SET_POSTS,
+    LOADING_DATA,
+    LIKE_POST,
+    UNLIKE_POST,
+    DELETE_POST,
+    SET_ERRORS,
+    POST_POST,
+    CLEAR_ERRORS,
+    LOADING_UI,
+    SET_POST,
+    STOP_LOADING_UI,
+    SUBMIT_COMMENT
+} from '../types';
 import axios from 'axios';
 
 //gett all posts
@@ -27,21 +40,21 @@ export const getPost = (postId) => dispatch => {
                 type: SET_POST,
                 payload: res.data
             });
-            dispatch({ type: STOP_LOADING_UI})
+            dispatch({ type: STOP_LOADING_UI })
         })
         .catch(err => console.log(err));
 };
 
 // post a post
 export const postPost = (newPost) => (dispatch) => {
-    dispatch({ type: LOADING_UI});
+    dispatch({ type: LOADING_UI });
     axios.post('/post', newPost)
         .then(res => {
             dispatch({
                 type: POST_POST,
                 payload: res.data
             });
-            dispatch({ type: CLEAR_ERRORS });
+            dispatch(clearErrors());
         })
         .catch(err => {
             dispatch({
@@ -74,6 +87,25 @@ export const unlikePost = (postId) => dispatch => {
         })
         .catch(err => console.log(err));
 };
+
+//submit a comment 
+export const submitComment = (postId, commentData) => (dispatch) => {
+    axios.post(`/post/${postId}/comment`, commentData)
+        .then(res => {
+            dispatch({
+                type: SUBMIT_COMMENT,
+                payload: res.data
+            });
+            dispatch(clearErrors());
+        })
+        .catch(err => {
+            dispatch({
+                type: SET_ERRORS,
+                payload: err.response.data
+            });
+        });
+};
+
 //delete post
 export const deletePost = (postId) => (dispatch) => {
     axios.delete(`/post/${postId}`)

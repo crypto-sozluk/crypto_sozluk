@@ -1,4 +1,4 @@
-import { SET_POSTS, LIKE_POST, UNLIKE_POST, LOADING_DATA, DELETE_POST, POST_POST, SET_POST } from '../types';
+import { SET_POSTS, LIKE_POST, UNLIKE_POST, LOADING_DATA, DELETE_POST, POST_POST, SET_POST, SUBMIT_COMMENT } from '../types';
 
 const initialState = {
     posts: [],
@@ -29,7 +29,9 @@ export default function(state = initialState, action){
             let index = state.posts.findIndex((post) => post.postId === action.payload.postId);
             state.posts[index] = action.payload;
             if(state.post.postId === action.payload.postId){
+                let temp = state.post.comments;
                 state.post = action.payload;
+                state.post.comments = temp;
             }
             return {
                 ...state
@@ -48,7 +50,15 @@ export default function(state = initialState, action){
                     action.payload,
                     ...state.posts
                 ]
-            }    
+            };
+        case SUBMIT_COMMENT:
+            return {
+                ...state,
+                post: {
+                    ...state.post,
+                    comments: [action.payload, ...state.post.comments]
+                }
+            }       
         default:
             return state;    
     }
