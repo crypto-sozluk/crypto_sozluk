@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CSButton from '../../util/CSButton';
 import PostPost from '../post/PostPost';
+import Notifications from './Notifications';
 
 // material-ui islevleri
 import AppBar from '@material-ui/core/AppBar';
@@ -12,7 +13,6 @@ import Button from '@material-ui/core/Button';
 
 //icons
 import HomeIcon from '@material-ui/icons/Home';
-import Notifications from '@material-ui/icons/Notifications';
 
 class Navbar extends Component {
     render() {
@@ -28,9 +28,7 @@ class Navbar extends Component {
                                     <HomeIcon />
                                 </CSButton>
                             </Link>
-                            <CSButton tip="Notifications">
                                 <Notifications />
-                            </CSButton>
                         </Fragment>
                     ) : (
                             <Fragment>
