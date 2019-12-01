@@ -45,7 +45,7 @@ class DeletePost extends Component {
                 onClick={this.handleOpen}
                 btnClassName={classes.deleteButton}
                 >
-                    <DeleteOutline color="secondary"/>
+                <DeleteOutline color="secondary"/>
                 </CSButton>
                 <Dialog
                     open={this.state.open}

@@ -89,10 +89,10 @@ class PostPost extends Component {
                                 <TextField
                                     name="body"
                                     type="text"
-                                    label="post!!"
+                                    label="Neler Oluyor?"
                                     multiline
                                     rows="3"
-                                    placeholder="istediğini postla"
+                                    placeholder="Dilediğini yazabilirsin..."
                                     error={errors.body ? true : false}
                                     helperText={errors.body}
                                     className={classes.textField}
