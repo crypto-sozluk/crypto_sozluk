@@ -37,5 +37,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "<api>"
+  "proxy": "https://europe-west1-sozluk-crypto.cloudfunctions.net/api"
 }

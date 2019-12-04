@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import CSButton from '../../util/CSButton';
 import dayjs from 'dayjs';
+import 'dayjs/locale/tr'
 import { Link } from 'react-router-dom';
 import LikeButton from './LikeButton';
 import Comments from './Comments';
@@ -107,12 +108,13 @@ class PostDialog extends Component {
                         </Typography>
                         <hr className={classes.invisibleSeparator} />
                         <Typography variant="body2" color="textSecondary">
-                            {dayjs(createdAt).format('h:mm a, MMMM DD YYYY')}
+                            {dayjs(createdAt).locale('tr').format('h:mm, MMMM DD YYYY')}
                         </Typography>
                         <hr className={classes.invisibleSeparator} />
                         <Typography variant="body1">
                             {body}
                         </Typography>
+                        <hr className={classes.invisibleSeparator} />
                         <LikeButton postId={postId}/>
                         <span>{likeCount} beğeniler</span>
                         <CSButton tip="comments">

@@ -50,7 +50,7 @@ const ProfileSkeleton = (props) => {
           <hr />
           <LinkIcon color="primary" /> https://website.com
           <hr />
-          <CalendarToday color="primary" /> da Katıldı
+          <CalendarToday color="primary" /> Katıldı
         </div>
       </div>
     </Paper>

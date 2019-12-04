@@ -81,7 +81,7 @@ class EditDetails extends Component {
                     onClose={this.handleClose}
                     fullWidth
                     maxWidth="sm">
-                    <DialogTitle>Edit your details</DialogTitle>
+                    <DialogTitle>Bilgilerinizi düzenleyin</DialogTitle>
                     <DialogContent>
                         <form>
                             <TextField 
@@ -90,7 +90,7 @@ class EditDetails extends Component {
                                 label="Bio"
                                 multiline
                                 rows="3"
-                                placeholder="a short bioe about yourself"
+                                placeholder="kendin hakkında kısa bir biyografi"
                                 className={classes.textField}
                                 value={this.state.bio}
                                 onChange={this.handleChange}
@@ -100,7 +100,7 @@ class EditDetails extends Component {
                                 name="website"
                                 type="text"
                                 label="Website"
-                                placeholder="your personel/professional website"
+                                placeholder="kişisel veya profesyonel web siteniz"
                                 className={classes.textField}
                                 value={this.state.website}
                                 onChange={this.handleChange}
@@ -109,8 +109,8 @@ class EditDetails extends Component {
                             <TextField 
                                 name="location"
                                 type="text"
-                                label="Location"
-                                placeholder="a short bioe about yourself"
+                                label="Konum"
+                                placeholder="Konumunuz"
                                 className={classes.textField}
                                 value={this.state.location}
                                 onChange={this.handleChange}
@@ -120,10 +120,10 @@ class EditDetails extends Component {
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleClose} color="secondary">
-                            cancel
+                            Iptal Et
                         </Button>
                         <Button onClick={this.handleSubmit} color="primary">
-                            Save
+                            Kaydet
                         </Button>
                     </DialogActions>
                 </Dialog>
