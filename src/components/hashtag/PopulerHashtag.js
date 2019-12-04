@@ -1,25 +1,14 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Link } from 'react-router-dom';
-import dayjs from 'dayjs';
-import 'dayjs/locale/tr'
-import EditDetails from './EditDetails';
-import CSButton from '../../util/CSButton';
 import ProfileSkeleton from '../../util/ProfileSkeleton';
 
 // mui islevleri
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import MuiLink from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
-
-//icons 
-import LocationOn from '@material-ui/icons/LocationOn';
-import LinkIcon from '@material-ui/icons/Link';
-import CalendarToday from '@material-ui/icons/CalendarToday';
-import EditIcon from '@material-ui/icons/Edit';
-import KeyboardReturn from '@material-ui/icons/KeyboardReturn';
 
 //redux
 import { connect } from 'react-redux';
@@ -27,71 +16,31 @@ import { logoutUser, uploadImage } from '../../redux/actions/userActions'
 
 
 const styles = (theme) => ({
-    ...theme.spreadThis
+    ...theme.spreadThis,
+    paperHash: {
+        marginTop: '25%',
+    }
 });
 
-export class Profile extends Component {
-    handleImageChange = (event) => {
-        const image = event.target.files[0];
-        const formData = new FormData();
-        formData.append('image', image, image.name);
-        this.props.uploadImage(formData);
-    };
-    handleEditPicture = () => {
-        const fileInput = document.getElementById('imageInput');
-        fileInput.click();
-    };
+export class PopularHashtag extends Component {
     handleLogout = () => {
         this.props.logoutUser();
     };
     render() {
-        const { classes, user: { credentials: { handle, createdAt, imageUrl, bio, website, location }, loading, authenticated } } = this.props;
+        const { classes, user: { loading, authenticated } } = this.props;
         let profileMarkup = !loading ? (authenticated ? (
-            <Paper className={classes.paper}>
-                <div className={classes.profile}>
-                    <div className="image-wrapper">
-                        <img src={imageUrl} alt="profile" className="profile-image" />
-                        <input type="file" id="imageInput" hidden="hidden" onChange={this.handleImageChange} />
-                        <CSButton tip="Profil fotoğrafınızı Güncelleyin" onClick={this.handleEditPicture} btnClassName="button">
-                            <EditIcon color="primary" />
-                        </CSButton>
-                    </div>
-                    <hr />
-                    <div className="profile-details">
-                        <MuiLink component={Link} to={`/users/${handle}`} color="primary" variant="h5">
-                            @{handle}
-                        </MuiLink>
-                        <hr />
-                        {bio && <Typography variant="body2">{bio}</Typography>}
-                        <hr />
-                        {location && (
-                            <Fragment>
-                                <LocationOn color="primary" /> <span>{location}</span>
-                                <hr />
-                            </Fragment>
-                        )}
-                        {website && (
-                            <Fragment>
-                                <LinkIcon color="primary" />
-                                <a href={website} target="_blank" rel="noopener noreferrer">
-                                    {' '}{website}
-                                </a>
-                                <hr />
-                            </Fragment>
-                        )}
-                        <CalendarToday color="primary" />{' '}
-                        <span>{dayjs(createdAt).locale('tr').format('MMMM YYYY')} Katıldı</span>
-                    </div>
-                    <CSButton tip="Logout" onClick={this.handleLogout}>
-                        <KeyboardReturn color="primary" />
-                    </CSButton>
-                    <EditDetails />
-                </div>
-            </Paper>
+            <div className={classes.paperHash}>
+                <Paper className={classes.paper}>
+                    <Grid item xs={12} md={6}></Grid>
+                        <Typography variant="h6" className={classes.title}>
+                            Hashtags
+                         </Typography>
+                </Paper>
+            </div>
         ) : (
                 <Paper className={classes.paper}>
                     <Typography variant="body2" align="center">
-                        Profil bulunamadı, lütfen tekrar giriş yapın
+                        Sadece giriş yaptıktan sonra görebilirsin.
                     </Typography>
                     <div className={classes.buttons}>
                         <Button variant="contained" color="primary" component={Link} to="/login">
@@ -102,7 +51,7 @@ export class Profile extends Component {
                     </Button>
                     </div>
                 </Paper>
-            )) : (<ProfileSkeleton/>)
+            )) : (<ProfileSkeleton />)
         return profileMarkup;
     }
 }
@@ -113,11 +62,11 @@ const mapStateToProps = (state) => ({
 
 const mapActionsToProps = { logoutUser, uploadImage };
 
-Profile.propTypes = {
+PopularHashtag.propTypes = {
     logoutUser: PropTypes.func.isRequired,
     uploadImage: PropTypes.func.isRequired,
     user: PropTypes.object.isRequired,
     classes: PropTypes.object.isRequired,
 };
 
-export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(Profile))
+export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(PopularHashtag))

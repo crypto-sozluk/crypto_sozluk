@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Post from '../components/post/Post';
 import Profile from '../components/profile/Profile';
+import PopulerHashtag from '../components/hashtag/PopulerHashtag';
 import PropTypes from 'prop-types';
 import PostSkeleton from '../util/PostSkeleton';
 
@@ -26,6 +27,8 @@ class home extends Component {
                 </Grid>
                 <Grid item sm={4} xs={12}>
                     <Profile />
+                    <br/>
+                    <PopulerHashtag />
                 </Grid>
             </Grid>
         );
