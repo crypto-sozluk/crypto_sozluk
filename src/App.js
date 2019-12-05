@@ -27,7 +27,7 @@ import axios from 'axios';
 
 const theme = createMuiTheme(themeFile);
 
-axios.defaults.baseURL = 'https://europe-west1-sozluk-crypto.cloudfunctions.net/api';
+axios.defaults.baseURL = '<api>';
 
 const token = localStorage.FBIdToken;
 if (token) {
