@@ -8,10 +8,13 @@
     "axios": "^0.19.0",
     "dayjs": "^1.8.17",
     "jwt-decode": "^2.2.0",
+    "mui-rte": "^1.10.0",
+    "quill": "^1.3.6",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
+    "react-rte": "^0.16.1",
     "react-scripts": "3.2.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"
@@ -37,5 +40,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "<api>"
+  "proxy": "https://europe-west1-sozluk-crypto.cloudfunctions.net/api"
 }

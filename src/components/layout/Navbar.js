@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CSButton from '../../util/CSButton';
-import PostPost from '../post/PostPost';
+// import PostPost from '../post/PostPost';
+import Posto from '../post/Posto';
 import Notifications from './Notifications';
 
 // material-ui islevleri
@@ -22,7 +23,8 @@ class Navbar extends Component {
                 <Toolbar className="nav-container">
                     {authenticated ? (
                         <Fragment>
-                            <PostPost />
+                            {/* <PostPost /> */}
+                            <Posto />
                             <Link to="/">
                                 <CSButton tip="home">
                                     <HomeIcon />
