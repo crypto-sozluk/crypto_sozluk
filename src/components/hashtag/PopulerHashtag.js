@@ -24,7 +24,9 @@ const styles = (theme) => ({
     },
     someHash: {
         padding: '5%',
-        margin: '10%'
+        margin: '10%',
+        maxWidth: '65%',
+        minWidth: '65%'
     },
     hashTitle: {
         marginLeft: '65%'
