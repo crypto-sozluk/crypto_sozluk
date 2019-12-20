@@ -10,7 +10,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import AddIcon from '@material-ui/icons/Add';
+import CreateIcon from '@material-ui/icons/Create';
 import CloseIcon from '@material-ui/icons/Close';
 
 //redux
@@ -71,8 +71,8 @@ class PostPost extends Component {
         const { classes, UI: { loading } } = this.props;
         return (
             <Fragment>
-                <CSButton onClick={this.handleOpen} tip="post a post">
-                    <AddIcon />
+                <CSButton onClick={this.handleOpen} tip="bir şey paylaş!">
+                    <CreateIcon />
                 </CSButton>
                 <Dialog
                     open={this.state.open}

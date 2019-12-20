@@ -16,7 +16,7 @@ import Badge from '@material-ui/core/Badge';
 //icons
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import ChatIcon from '@material-ui/icons/Chat';
+import ChatIcon from '@material-ui/icons/InsertComment';
 
 //redux
 import { connect } from 'react-redux';

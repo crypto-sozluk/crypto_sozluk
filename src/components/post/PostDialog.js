@@ -18,8 +18,8 @@ import Typography from '@material-ui/core/Typography';
 
 //icon
 import CloseIcon from '@material-ui/icons/Close';
-import UnfoldMore from '@material-ui/icons/UnfoldMore';
-import ChatIcon from '@material-ui/icons/Chat';
+import UnfoldMore from '@material-ui/icons/More';
+import ChatIcon from '@material-ui/icons/InsertComment';
 
 //redux
 import { connect } from 'react-redux';
@@ -32,6 +32,7 @@ const styles = (theme) => ({
     profileImage:{
         maxWidth: 200,
         height: 200,
+        width: 200,
         borderRadius: '50%',
         objectFit: 'cover'
     },

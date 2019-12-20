@@ -17,7 +17,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 //icons
-import ChatIcon from '@material-ui/icons/Chat';
+import ChatIcon from '@material-ui/icons/InsertComment';
 
 //redyx
 import { connect } from 'react-redux';
@@ -29,7 +29,13 @@ const styles = {
         marginBottom: 20
     },
     image: {
-        minWidth: 200,
+        minWidth: 100,
+        width: 100,
+        height: 100,
+        maxWidth: '100%',
+        objectFit: 'cover',
+        borderRadius: '50%',
+        margin:'2%'
     },
     content: {
         padding: 25,
