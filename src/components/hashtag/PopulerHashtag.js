@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Link } from 'react-router-dom';
-import ProfileSkeleton from '../../util/ProfileSkeleton';
+import HashSkeleton from '../../util/HashSkeleton';
 
 // mui islevleri
 import Button from '@material-ui/core/Button';
@@ -70,7 +70,7 @@ export class PopularHashtag extends Component {
                     </Button>
                     </div>
                 </Paper>
-            )) : (<ProfileSkeleton />)
+            )) : (<HashSkeleton />)
         return profileMarkup;
     }
 }

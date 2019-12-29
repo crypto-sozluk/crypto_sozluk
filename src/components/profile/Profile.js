@@ -18,8 +18,7 @@ import Paper from '@material-ui/core/Paper';
 import LocationOn from '@material-ui/icons/LocationOn';
 import LinkIcon from '@material-ui/icons/Link';
 import CalendarToday from '@material-ui/icons/CalendarToday';
-import EditIcon from '@material-ui/icons/Edit';
-import KeyboardReturn from '@material-ui/icons/KeyboardReturn';
+import EditIcon from '@material-ui/icons/CreateOutlined';
 
 //redux
 import { connect } from 'react-redux';
@@ -82,8 +81,10 @@ export class Profile extends Component {
                         <CalendarToday color="primary" />{' '}
                         <span>{dayjs(createdAt).locale('tr').format('MMMM YYYY')} Katıldı</span>
                     </div>
-                    <CSButton tip="Logout" onClick={this.handleLogout}>
-                        <KeyboardReturn color="primary" />
+                    <CSButton tip="Çıkış Yap" onClick={this.handleLogout}>
+                        <Typography variant="button" gutterBottom>
+                            Çıkış Yap
+                        </Typography>
                     </CSButton>
                     <EditDetails />
                 </div>
@@ -102,7 +103,7 @@ export class Profile extends Component {
                     </Button>
                     </div>
                 </Paper>
-            )) : (<ProfileSkeleton/>)
+            )) : (<ProfileSkeleton />)
         return profileMarkup;
     }
 }
