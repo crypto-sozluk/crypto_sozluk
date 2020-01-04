@@ -109,7 +109,7 @@ class PostDialog extends Component {
                         </Typography>
                         <hr className={classes.invisibleSeparator} />
                         <Typography variant="body2" color="textSecondary">
-                            {dayjs(createdAt).locale('tr').format('h:mm, MMMM DD YYYY')}
+                            {dayjs(createdAt).locale('tr').format('h:mm, DD MMMM YYYY')}
                         </Typography>
                         <hr className={classes.invisibleSeparator} />
                         <Typography variant="body1">

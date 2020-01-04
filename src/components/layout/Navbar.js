@@ -26,7 +26,7 @@ class Navbar extends Component {
                             <PostPost />
                             {/* <Posto /> */}
                             <Link to="/">
-                                <CSButton tip="home">
+                                <CSButton tip="Anasayfa">
                                     <HomeIcon />
                                 </CSButton>
                             </Link>

@@ -81,7 +81,7 @@ class Post extends Component {
                     <Typography variant="body1">{body}</Typography>
                     <LikeButton postId={postId} />
                     <span>{likeCount} Begeniler</span>
-                    <CSButton tip="comments">
+                    <CSButton tip="comments" >
                         <ChatIcon color="primary" />
                     </CSButton>
                     <span>{commentCount} yorumlar</span>
