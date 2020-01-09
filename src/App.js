@@ -21,6 +21,7 @@ import AuthRoute from './util/AuthRoute';
 import home from './pages/home';
 import login from './pages/login';
 import signup from './pages/signup';
+import resetpassword from './pages/resetpassword';
 import user from './pages/user';
 
 import axios from 'axios';
@@ -53,6 +54,7 @@ function App() {
               <Route exact path="/" component={home} />
               <AuthRoute exact path="/login" component={login} />
               <AuthRoute exact path="/signup" component={signup} />
+              <AuthRoute exact path="/sifirla" component={resetpassword} />
               <Route exact path="/users/:handle" component={user} />
               <Route exact path="/users/:handle/post/:postId" component={user} />
             </Switch>

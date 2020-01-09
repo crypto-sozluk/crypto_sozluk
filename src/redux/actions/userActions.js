@@ -41,6 +41,22 @@ export const logoutUser = () => (dispatch) => {
     dispatch({ type: SET_UNAUTHENTICATED  });
 }
 
+export const resetPassword = (userData, history) => (dispatch) => {
+    dispatch({ type: LOADING_UI });
+    axios.post('/sifirla', userData)
+        .then(res => {
+            setAuthorizationHeader(res.data.token);
+            dispatch(getUserData());
+            dispatch({ type: CLEAR_ERRORS });
+            history.push('/login');
+        })
+        .catch(err => {
+            dispatch({
+                type: SET_ERRORS,
+                payload: err.response.data
+            })
+        });
+};
 export const getUserData = () => (dispatch) => {
     dispatch({ type: LOADING_USER });
     axios.get('/user')

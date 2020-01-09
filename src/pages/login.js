@@ -108,6 +108,8 @@ class login extends Component {
                         <br />
                         <br />
                         <small>hesabınız yok mu? uye olmak için <Link to="/signup">burayı tıklayın</Link></small>
+                        <hr />
+                        <small>şifrenizi mi unuttunuz? <Link to="/sifirla">burayı tıklayın</Link></small>
                     </form>
                 </Grid>
                 <Grid item sm />
