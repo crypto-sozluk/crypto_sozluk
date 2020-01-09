@@ -62,8 +62,8 @@ class Notifications extends Component {
         }
         let notificationsMarkup = notifications && notifications.length > 0 ? (
             notifications.map(not => {
-                const verb = not.type === 'like' ? 'liked' : 'commented on';
-                const time = dayjs(not.createdAt).fromNow();
+                const verb = not.type === 'like' ? 'u beğendi' : 'a yorum attı';
+                const time = dayjs(not.createdAt).locale('tr').fromNow();
                 const iconColor = not.read ? 'primary' : 'secondary';
                 const icon = not.type === 'like' ? (
                     <FavoriteIcon color={iconColor} style={{marginRight: 10}}/>
@@ -80,7 +80,7 @@ class Notifications extends Component {
                             variant="body1"
                             to={`/users/${not.recipient}/post/${not.postId}`}
                             >
-                                {not.sender} {verb} postunuz {time}
+                             {not.sender} {time} postunuz {verb} 
                             </Typography>
                     </MenuItem>
                 )

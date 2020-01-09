@@ -118,7 +118,7 @@ class PostDialog extends Component {
                         <hr className={classes.invisibleSeparator} />
                         <LikeButton postId={postId}/>
                         <span>{likeCount} beğeniler</span>
-                        <CSButton tip="comments">
+                        <CSButton tip="yorumlar">
                         <ChatIcon color="primary" />
                         </CSButton>
                         <span>{commentCount} yorumlar</span>

@@ -27,16 +27,16 @@ export class LikeButton extends Component {
         const { authenticated } = this.props.user;
         const likeButton = !authenticated ? (
             <Link to="/login">
-                <CSButton tip="Like">
+                <CSButton tip="Beğen">
                     <FavoriteBorder color="primary" />
                 </CSButton>
             </Link>
         ) : this.likedPost() ? (
-            <CSButton tip="Undo Like" onClick={this.unlikePost}>
+            <CSButton tip="Beğenmekten Vazgeç" onClick={this.unlikePost}>
                 <FavoriteIcon color="primary" />
             </CSButton>
         ) : (
-            <CSButton tip="Like" onClick={this.likePost}>
+            <CSButton tip="Beğen" onClick={this.likePost}>
                 <FavoriteBorder color="primary" />
             </CSButton>
         );
