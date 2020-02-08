@@ -15,7 +15,7 @@ import CloseIcon from '@material-ui/icons/Close';
 
 //redux
 import { connect } from 'react-redux';
-import { postPost, clearErrors } from '../../redux/actions/dataActions';
+import { postPost, postSubPost, clearErrors } from '../../redux/actions/dataActions';
 
 const styles = (theme) => ({
     ...theme.spreadThis,
@@ -64,6 +64,7 @@ class PostPost extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.postPost({ body: this.state.body })
+        this.props.postSubPost({ body: this.state.body })
     };
 
     render() {
@@ -99,6 +100,19 @@ class PostPost extends Component {
                                     onChange={this.handleChange}
                                     fullWidth
                                 />
+                                <TextField
+                                    name="body"
+                                    type="text"
+                                    label="hangi coin?"
+                                    multiline
+                                    rows="3"
+                                    placeholder="Dilediğini yazabilirsin..."
+                                    error={errors.body ? true : false}
+                                    helperText={errors.body}
+                                    className={classes.textField}
+                                    onChange={this.handleChange}
+                                    fullWidth
+                                />
                                 <Button type="submit" variant="contained" color="primary" className={classes.submitButton} disabled={loading}>
                                     Gonder
                                         {loading && (
@@ -115,6 +129,7 @@ class PostPost extends Component {
 
 PostPost.propTypes = {
     postPost: PropTypes.func.isRequired,
+    postSubPost: PropTypes.func.isRequired,
     clearErrors: PropTypes.func.isRequired,
     UI: PropTypes.object.isRequired
 };
@@ -123,4 +138,4 @@ const mapStateToProps = (state) => ({
     UI: state.UI
 });
 
-export default connect(mapStateToProps, { postPost, clearErrors })(withStyles(styles)(PostPost));
+export default connect(mapStateToProps, { postPost, postSubPost, clearErrors })(withStyles(styles)(PostPost));
