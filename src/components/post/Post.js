@@ -51,6 +51,7 @@ class Post extends Component {
             classes,
             post: {
                 body,
+                coinType,
                 createdAt,
                 userImage,
                 userHandle,
@@ -79,6 +80,8 @@ class Post extends Component {
                     {deleteButton}
                     <Typography variant="body2" color="textSecondary">{dayjs(createdAt).locale('tr').fromNow()}</Typography>
                     <Typography variant="body1">{body}</Typography>
+                    <hr/>
+                    <Typography variant="body1">{body.coinType}</Typography>
                     <LikeButton postId={postId} />
                     <span>{likeCount} Begeniler</span>
                     <CSButton tip="yorumlar" >
