@@ -79,7 +79,6 @@ class Post extends Component {
                     {deleteButton}
                     <Typography variant="body2" color="textSecondary">{dayjs(createdAt).locale('tr').fromNow()}</Typography>
                     <Typography variant="body1">{body}</Typography>
-                    <Typography variant="body2">{body}</Typography>
                     <LikeButton postId={postId} />
                     <span>{likeCount} Begeniler</span>
                     <CSButton tip="yorumlar" >

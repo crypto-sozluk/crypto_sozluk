@@ -6,7 +6,6 @@ import {
     DELETE_POST,
     SET_ERRORS,
     POST_POST,
-    POST_SUBPOST,
     CLEAR_ERRORS,
     LOADING_UI,
     SET_POST,
@@ -53,24 +52,6 @@ export const postPost = (newPost) => (dispatch) => {
         .then(res => {
             dispatch({
                 type: POST_POST,
-                payload: res.data
-            });
-            dispatch(clearErrors());
-        })
-        .catch(err => {
-            dispatch({
-                type: SET_ERRORS,
-                payload: err.response.data
-            });
-        });
-};
-
-export const postSubPost = (newPost) => (dispatch) => {
-    dispatch({ type: LOADING_UI });
-    axios.post('/cryptos', newPost)
-        .then(res => {
-            dispatch({
-                type: POST_SUBPOST,
                 payload: res.data
             });
             dispatch(clearErrors());
