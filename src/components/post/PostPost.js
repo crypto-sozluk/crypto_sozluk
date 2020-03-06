@@ -38,6 +38,7 @@ class PostPost extends Component {
     state = {
         open: false,
         body: '',
+        coinType: '',
         errors: {}
     };
     componentWillReceiveProps(nextProps) {
@@ -47,7 +48,7 @@ class PostPost extends Component {
             });
         };
         if (!nextProps.UI.errors && !nextProps.UI.loading) {
-            this.setState({ body: '', open: false, errors: {} });
+            this.setState({ body: '', coinType: '', open: false, errors: {} });
         }
     };
 
@@ -63,7 +64,7 @@ class PostPost extends Component {
     };
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.postPost({ body: this.state.body })
+        this.props.postPost({ body: this.state.body, coinType: this.state.coinType })
     };
 
     render() {
@@ -81,32 +82,45 @@ class PostPost extends Component {
                     maxWidth="sm"
                 >
                     <CSButton tip="kapat" onClick={this.handleClose} tipClassName={classes.closeButton}>
-                    <CloseIcon />
+                        <CloseIcon />
                     </CSButton>
-                        <DialogTitle>Birşeyler yaz...</DialogTitle>
-                        <DialogContent>
-                            <form onSubmit={this.handleSubmit}>
-                                <TextField
-                                    name="body"
-                                    type="text"
-                                    label="Neler Oluyor?"
-                                    multiline
-                                    rows="3"
-                                    placeholder="Dilediğini yazabilirsin..."
-                                    error={errors.body ? true : false}
-                                    helperText={errors.body}
-                                    className={classes.textField}
-                                    onChange={this.handleChange}
-                                    fullWidth
-                                />
-                                <Button type="submit" variant="contained" color="primary" className={classes.submitButton} disabled={loading}>
-                                    Gonder
+                    <DialogTitle>Birşeyler yaz...</DialogTitle>
+                    <DialogContent>
+                        <form onSubmit={this.handleSubmit}>
+                            <TextField
+                                name="coinType"
+                                type="text"
+                                label="Hangi Crypto Borsası Sembolu?"
+                                multiline
+                                rows="3"
+                                placeholder="Dilediğini yazabilirsin..."
+                                error={errors.coinType ? true : false}
+                                helperText={errors.coinType}
+                                className={classes.textField}
+                                onChange={this.handleChange}
+                                fullWidth
+                            />
+                            <TextField
+                                name="body"
+                                type="text"
+                                label="Neler Oluyor?"
+                                multiline
+                                rows="3"
+                                placeholder="Dilediğini yazabilirsin..."
+                                error={errors.body ? true : false}
+                                helperText={errors.body}
+                                className={classes.textField}
+                                onChange={this.handleChange}
+                                fullWidth
+                            />
+                            <Button type="submit" variant="contained" color="primary" className={classes.submitButton} disabled={loading}>
+                                Gonder
                                         {loading && (
-                                        <CircularProgress size={30} className={classes.progressSpinner} />
-                                    )}
-                                </Button>
-                            </form>
-                        </DialogContent>
+                                    <CircularProgress size={30} className={classes.progressSpinner} />
+                                )}
+                            </Button>
+                        </form>
+                    </DialogContent>
                 </Dialog>
             </Fragment>
         )

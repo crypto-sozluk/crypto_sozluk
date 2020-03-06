@@ -79,9 +79,8 @@ class Post extends Component {
                     <Typography variant="h5" color="primary" component={Link} to={`/users/${userHandle}`}>{userHandle}</Typography>
                     {deleteButton}
                     <Typography variant="body2" color="textSecondary">{dayjs(createdAt).locale('tr').fromNow()}</Typography>
+                    <Typography variant="body2">{coinType}</Typography>
                     <Typography variant="body1">{body}</Typography>
-                    <hr/>
-                    <Typography variant="body1">{body.coinType}</Typography>
                     <LikeButton postId={postId} />
                     <span>{likeCount} Begeniler</span>
                     <CSButton tip="yorumlar" >

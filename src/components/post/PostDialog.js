@@ -87,7 +87,7 @@ class PostDialog extends Component {
     }
 
     render() {
-        const { classes, post: { postId, body, createdAt, likeCount, commentCount, userImage, userHandle, comments }, UI: { loading } } = this.props; 
+        const { classes, post: { postId, body, coinType, createdAt, likeCount, commentCount, userImage, userHandle, comments }, UI: { loading } } = this.props; 
 
         const dialogMarkup = loading ? (
             <div className={classes.spinnerDiv}>
@@ -112,6 +112,9 @@ class PostDialog extends Component {
                             {dayjs(createdAt).locale('tr').format('h:mm, DD MMMM YYYY')}
                         </Typography>
                         <hr className={classes.invisibleSeparator} />
+                        <Typography variant="body2">
+                            {coinType}
+                        </Typography>
                         <Typography variant="body1">
                             {body}
                         </Typography>
