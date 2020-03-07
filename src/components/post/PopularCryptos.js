@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Chip from '@material-ui/core/Chip';
 
+
 //redux
 import { connect } from 'react-redux';
 import { logoutUser, uploadImage } from '../../redux/actions/userActions'
@@ -32,7 +33,7 @@ const styles = (theme) => ({
     }
 });
 
-class PopularHashtag extends Component {
+class PopularCryptos extends Component {
     handleLogout = () => {
         this.props.logoutUser();
     };
@@ -42,9 +43,7 @@ class PopularHashtag extends Component {
             user: {
                 loading, authenticated
             },
-            post: {
-                coinType
-            }
+            post: { coinType }
         } = this.props;
         let profileMarkup = !loading ? (authenticated ? (
             <div className={classes.paperHash}>
@@ -77,7 +76,7 @@ class PopularHashtag extends Component {
     }
 }
 
-PopularHashtag.propTypes = {
+PopularCryptos.propTypes = {
     user: PropTypes.object.isRequired,
     post: PropTypes.object.isRequired,
     logoutUser: PropTypes.func.isRequired,
@@ -92,4 +91,4 @@ const mapStateToProps = (state) => ({
 
 const mapActionsToProps = { logoutUser, uploadImage };
 
-export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(PopularHashtag))
+export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(PopularCryptos))
