@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Link } from 'react-router-dom';
 import HashSkeleton from '../../util/HashSkeleton';
-
 // mui islevleri
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -33,25 +32,25 @@ const styles = (theme) => ({
     }
 });
 
-export class PopularHashtag extends Component {
+class PopularHashtag extends Component {
     handleLogout = () => {
         this.props.logoutUser();
     };
     render() {
-        const { classes, user: { loading, authenticated } } = this.props;
+        const { 
+            classes,
+            user: 
+            { 
+                loading, authenticated 
+            } 
+        } = this.props;
         let profileMarkup = !loading ? (authenticated ? (
             <div className={classes.paperHash}>
                 <Paper className={classes.paper}>
                     <Grid item xs={12} md={6}>
                         <Typography variant="h5" className={classes.hashTitle} gutterBottom> Hashtags </Typography>
                         <div className="chipsHash">
-                        <Chip label="BTC" component="a" className={classes.someHash} href="#chip" clickable />
-                        <Chip label="ETH" component="a" className={classes.someHash} href="#chip" clickable />
-                        <Chip label="QKC" component="a" className={classes.someHash} href="#chip" clickable />
-                        <Chip label="TRX" component="a" className={classes.someHash} href="#chip" clickable />
-                        <Chip label="BNB" component="a" className={classes.someHash} href="#chip" clickable />
-                        <Chip label="BTC/USDT" component="a" className={classes.someHash} href="#chip" clickable />
-                        <Chip label="TETHERS" component="a" className={classes.someHash} href="#chip" clickable />
+                            <Chip label="BTC" component="a" className={classes.someHash} href="#chip" clickable />
                         </div>
                     </Grid>
                 </Paper>
