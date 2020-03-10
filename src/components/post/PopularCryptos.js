@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Link } from 'react-router-dom';
 import HashSkeleton from '../../util/HashSkeleton';
+
 // mui islevleri
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Chip from '@material-ui/core/Chip';
+
 
 //redux
 import { connect } from 'react-redux';
@@ -31,28 +33,17 @@ const styles = (theme) => ({
     }
 });
 
-class PopularHashtag extends Component {
+class PopularCryptos extends Component {
     handleLogout = () => {
         this.props.logoutUser();
     };
     render() {
-<<<<<<< HEAD
-        const { 
-            classes,
-            user: 
-            { 
-                loading, authenticated 
-            } 
-=======
         const {
             classes,
             user: {
                 loading, authenticated
             },
-            post: {
-                coinType
-            }
->>>>>>> a56de8fc4cbace304936f5cff33f13ef90bc2e55
+            post: { coinType }
         } = this.props;
         let profileMarkup = !loading ? (authenticated ? (
             <div className={classes.paperHash}>
@@ -60,12 +51,8 @@ class PopularHashtag extends Component {
                     <Grid item xs={12} md={6}>
                         <Typography variant="h5" className={classes.hashTitle} gutterBottom> Hashtags </Typography>
                         <div className="chipsHash">
-<<<<<<< HEAD
-                            <Chip label="BTC" component="a" className={classes.someHash} href="#chip" clickable />
-=======
                         <Chip label="BTC" className={classes.someHash} href="#chip" clickable />
                         <h4>{coinType}</h4>
->>>>>>> a56de8fc4cbace304936f5cff33f13ef90bc2e55
                         </div>
                     </Grid>
                 </Paper>
@@ -89,7 +76,7 @@ class PopularHashtag extends Component {
     }
 }
 
-PopularHashtag.propTypes = {
+PopularCryptos.propTypes = {
     user: PropTypes.object.isRequired,
     post: PropTypes.object.isRequired,
     logoutUser: PropTypes.func.isRequired,
@@ -104,4 +91,4 @@ const mapStateToProps = (state) => ({
 
 const mapActionsToProps = { logoutUser, uploadImage };
 
-export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(PopularHashtag))
+export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(PopularCryptos))
