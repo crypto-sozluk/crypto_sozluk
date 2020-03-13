@@ -15,7 +15,6 @@ import Chip from '@material-ui/core/Chip';
 import { connect } from 'react-redux';
 import { logoutUser, uploadImage } from '../../redux/actions/userActions'
 
-
 const styles = (theme) => ({
     ...theme.spreadThis,
     paperHash: {
@@ -49,7 +48,7 @@ class PopularHashtag extends Component {
                     <Grid item xs={12} md={6}>
                         <Typography variant="h5" className={classes.hashTitle} gutterBottom> Hashtags </Typography>
                         <div className="chipsHash">
-                        <Chip label="BTC" className={classes.someHash} href="#chip" clickable />
+                        <Chip label="{coinType}" className={classes.someHash} href="#chip" clickable />
                         </div>
                     </Grid>
                 </Paper>
