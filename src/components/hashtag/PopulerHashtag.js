@@ -15,7 +15,6 @@ import Chip from '@material-ui/core/Chip';
 import { connect } from 'react-redux';
 import { logoutUser, uploadImage } from '../../redux/actions/userActions'
 
-
 const styles = (theme) => ({
     ...theme.spreadThis,
     paperHash: {
@@ -41,9 +40,6 @@ class PopularHashtag extends Component {
             classes,
             user: {
                 loading, authenticated
-            },
-            post: {
-                coinType
             }
         } = this.props;
         let profileMarkup = !loading ? (authenticated ? (
@@ -52,8 +48,7 @@ class PopularHashtag extends Component {
                     <Grid item xs={12} md={6}>
                         <Typography variant="h5" className={classes.hashTitle} gutterBottom> Hashtags </Typography>
                         <div className="chipsHash">
-                        <Chip label="BTC" className={classes.someHash} href="#chip" clickable />
-                        <h4>{coinType}</h4>
+                        <Chip label="{coinType}" className={classes.someHash} href="#chip" clickable />
                         </div>
                     </Grid>
                 </Paper>
@@ -79,7 +74,6 @@ class PopularHashtag extends Component {
 
 PopularHashtag.propTypes = {
     user: PropTypes.object.isRequired,
-    post: PropTypes.object.isRequired,
     logoutUser: PropTypes.func.isRequired,
     uploadImage: PropTypes.func.isRequired,
     classes: PropTypes.object.isRequired,

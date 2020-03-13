@@ -14,6 +14,7 @@ import Button from '@material-ui/core/Button';
 
 //icons
 import HomeIcon from '@material-ui/icons/Home';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 class Navbar extends Component {
     render() {
@@ -31,6 +32,12 @@ class Navbar extends Component {
                                 </CSButton>
                             </Link>
                                 <Notifications />
+
+                            <Link to="/">
+                                <CSButton tip="Anasayfa">
+                                    <AccountCircleIcon />
+                                </CSButton>
+                            </Link>
                         </Fragment>
                     ) : (
                             <Fragment>
