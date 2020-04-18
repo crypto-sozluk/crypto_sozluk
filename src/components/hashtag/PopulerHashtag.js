@@ -13,7 +13,6 @@ import Chip from '@material-ui/core/Chip';
 
 //redux
 import { connect } from 'react-redux';
-import { logoutUser, uploadImage } from '../../redux/actions/userActions'
 
 const styles = (theme) => ({
     ...theme.spreadThis,
@@ -32,23 +31,21 @@ const styles = (theme) => ({
 });
 
 class PopularHashtag extends Component {
-    handleLogout = () => {
-        this.props.logoutUser();
-    };
     render() {
+
         const {
             classes,
             user: {
                 loading, authenticated
             }
         } = this.props;
-        let profileMarkup = !loading ? (authenticated ? (
+        let profileMarkup = !loading ? (authenticated ?  (
             <div className={classes.paperHash}>
                 <Paper className={classes.paper}>
                     <Grid item xs={12} md={6}>
                         <Typography variant="h5" className={classes.hashTitle} gutterBottom> Hashtags </Typography>
                         <div className="chipsHash">
-                        <Chip label="{coinType}" className={classes.someHash} href="#chip" clickable />
+                            <Chip label="{coinType}" className={classes.someHash} href="#chip" clickable />
                         </div>
                     </Grid>
                 </Paper>
@@ -59,7 +56,7 @@ class PopularHashtag extends Component {
                         Sadece giriş yaptıktan sonra görebilirsin.
                     </Typography>
                     <div className={classes.buttons}>
-                        <Button variant="contained" color="primary" component={Link} to="/login">
+                    <Button variant="contained" color="primary" component={Link} to="/login">
                             Giriş Yap
                     </Button>
                         <Button variant="contained" color="secondary" component={Link} to="/signup">
@@ -74,8 +71,6 @@ class PopularHashtag extends Component {
 
 PopularHashtag.propTypes = {
     user: PropTypes.object.isRequired,
-    logoutUser: PropTypes.func.isRequired,
-    uploadImage: PropTypes.func.isRequired,
     classes: PropTypes.object.isRequired,
 };
 
@@ -84,6 +79,9 @@ const mapStateToProps = (state) => ({
     user: state.user
 });
 
-const mapActionsToProps = { logoutUser, uploadImage };
 
+<<<<<<< HEAD
+export default connect(mapStateToProps)(withStyles(styles)(PopularHashtag))
+=======
 export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(PopularHashtag))
+>>>>>>> 6e0d99c5cf1d1e3a2155a0cecf23128e2773f0aa
