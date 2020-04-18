@@ -16,6 +16,7 @@ import Button from '@material-ui/core/Button';
 import HomeIcon from '@material-ui/icons/Home';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
+
 class Navbar extends Component {
     render() {
         const { authenticated } = this.props;
@@ -31,9 +32,9 @@ class Navbar extends Component {
                                     <HomeIcon />
                                 </CSButton>
                             </Link>
-                                <Notifications />
+                            <Notifications />
 
-                            <Link to="/">
+                            <Link to="/users">
                                 <CSButton tip="Anasayfa">
                                     <AccountCircleIcon />
                                 </CSButton>
@@ -53,7 +54,7 @@ class Navbar extends Component {
 }
 
 Navbar.propTypes = {
-    authenticated: PropTypes.bool.isRequired,
+    authenticated: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => ({
