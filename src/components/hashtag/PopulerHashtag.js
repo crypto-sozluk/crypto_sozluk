@@ -80,8 +80,5 @@ const mapStateToProps = (state) => ({
 });
 
 
-<<<<<<< HEAD
 export default connect(mapStateToProps)(withStyles(styles)(PopularHashtag))
-=======
-export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(PopularHashtag))
->>>>>>> 6e0d99c5cf1d1e3a2155a0cecf23128e2773f0aa
+// export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(PopularHashtag))

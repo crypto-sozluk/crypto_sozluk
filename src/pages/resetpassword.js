@@ -86,7 +86,7 @@ class resetpassword extends Component {
                             className={classes.button}
                             disabled={loading}
                         >
-                            Sıfırla
+                            Şimdi Sıfırla
                           {loading && (
                                 <CircularProgress size={30} className={classes.progress} />
                             )}
